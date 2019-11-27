@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_characters">
+
+    <fragment
+        android:id="@+id/navigation_characters"
+        android:name="com.sample.starwarssample.ui.planets.PlanetsFragment"
+        android:label="@string/title_characters"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_planets"
+        android:name="com.sample.starwarssample.ui.characters.CharactersFragment"
+        android:label="@string/title_planets"
+        tools:layout="@layout/fragment_characters" />
+
+    <fragment
+        android:id="@+id/navigation_ships"
+        android:name="com.sample.starwarssample.ui.starships.StarShipsFragment"
+        android:label="@string/title_favorite_characters"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_favorite_characters"
+        android:name="com.sample.starwarssample.ui.favoritecharacters.FavoriteCharactersFragment"
+        android:label="@string/title_favorite_characters"
+        tools:layout="@layout/favorite_characters_fragment" />
+</navigation>

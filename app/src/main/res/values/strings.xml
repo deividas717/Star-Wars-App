@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StarWarsSample</string>
+    <string name="title_characters">Characters</string>
+    <string name="title_planets">Planets</string>
+    <string name="title_star_ships">Star Ships</string>
+    <string name="title_favorite_characters">Favorites</string>
+</resources>
