@@ -21,4 +21,8 @@
     <string name="loading_data">Loading data</string>
     <string name="your_device_is_offline">Your device is offline</string>
     <string name="an_error_has_occured">An error has eccured</string>
+    <string name="retry_again">Retry again?</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="no_favorite_characters_at_the_moment">No favorite characters at the moment</string>
 </resources>

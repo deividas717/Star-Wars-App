@@ -6,7 +6,6 @@ import com.sample.starwarssample.R
 import com.sample.starwarssample.model.StarShip
 import com.sample.starwarssample.ui.BaseFragment
 import com.sample.starwarssample.ui.adapter.StarShipsAdapter
-import com.sample.starwarssample.ui.planets.PlanetsViewModel
 import kotlinx.android.synthetic.main.fragment_starships.*
 import javax.inject.Inject
 
@@ -27,9 +26,14 @@ class StarShipsFragment : BaseFragment() {
     private fun observeLiveData() {
         viewModel.starShipsLiveData.observe(::setData)
         viewModel.loadingState.observe(::handleDataLoadingDialog)
+        viewModel.errorState.observe(::showErrorDialog)
     }
 
     private fun setData(data: List<StarShip>) {
         adapter.dataList = data
+    }
+
+    override fun onErrorDialogOkPressed() {
+        viewModel.getStarShips()
     }
 }

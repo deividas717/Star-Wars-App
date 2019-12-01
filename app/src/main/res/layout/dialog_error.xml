@@ -8,11 +8,11 @@
     android:orientation="vertical">
 
     <TextView
-        android:textStyle="bold"
-        android:id="@+id/progressBar"
+        android:id="@+id/errorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,16 +20,32 @@
         tools:text="This is a huge problem!!!" />
 
     <TextView
-        android:id="@+id/loadingData"
+        android:id="@+id/tryAgainLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:paddingBottom="20dp"
-        android:text="@string/loading_data"
+        android:text="@string/retry_again"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintEnd_toEndOf="@+id/errorTextView"
+        app:layout_constraintStart_toStartOf="@+id/errorTextView"
+        app:layout_constraintTop_toBottomOf="@+id/errorTextView" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toStartOf="@+id/okButton"
+        app:layout_constraintTop_toBottomOf="@+id/tryAgainLabel" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tryAgainLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

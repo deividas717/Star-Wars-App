@@ -10,7 +10,6 @@ import com.sample.starwarssample.model.DisplayCharacter
 import com.sample.starwarssample.ui.BaseFragment
 import com.sample.starwarssample.ui.adapter.CharactersAdapter
 import kotlinx.android.synthetic.main.fragment_characters.*
-import timber.log.Timber
 import javax.inject.Inject
 
 class CharactersFragment : BaseFragment() {
@@ -30,6 +29,10 @@ class CharactersFragment : BaseFragment() {
         observeLiveData()
     }
 
+    override fun onErrorDialogOkPressed() {
+        viewModel.getCharacters()
+    }
+
     private fun setSearchViewListeners() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = true
@@ -44,6 +47,7 @@ class CharactersFragment : BaseFragment() {
         viewModel.charactersList.observe(::setDataList)
         viewModel.filteredCharactersList.observe(::setDataList)
         viewModel.loadingState.observe(::handleDataLoadingDialog)
+        viewModel.errorState.observe(::showErrorDialog)
     }
 
     private fun setDataList(characterList: List<DisplayCharacter>) {

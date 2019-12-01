@@ -16,4 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/noFavoriteCharactersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_favorite_characters_at_the_moment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/favoriteCharactersRecyclerView"
+        app:layout_constraintTop_toTopOf="@+id/favoriteCharactersRecyclerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

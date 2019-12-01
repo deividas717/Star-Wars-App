@@ -14,7 +14,8 @@ class FavoriteCharactersViewModel(private val model: FavoriteCharactersModel) : 
     init {
         viewModelScope.launch {
             loadingState.setValue(true)
-            favoriteCharacterList.setValue(model.getAllCharacters().mapToDisplayCharacters())
+            val displayCharacters = model.getAllCharacters().mapToDisplayCharacters()
+            favoriteCharacterList.setValue(displayCharacters)
             loadingState.setValue(false)
         }
     }

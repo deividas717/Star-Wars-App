@@ -27,9 +27,14 @@ class PlanetsFragment : BaseFragment() {
     private fun observeLiveData() {
         viewModel.planetsLiveData.observe(::setData)
         viewModel.loadingState.observe(::handleDataLoadingDialog)
+        viewModel.errorState.observe(::showErrorDialog)
     }
 
     private fun setData(list: List<Planet>) {
         adapter.dataList = list
+    }
+
+    override fun onErrorDialogOkPressed() {
+        viewModel.getPlanets()
     }
 }

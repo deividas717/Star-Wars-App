@@ -2,6 +2,7 @@ package com.sample.starwarssample.ui.characters.detail
 
 import com.sample.starwarssample.api.ApiService
 import com.sample.starwarssample.db.AppDatabase
+import com.sample.starwarssample.model.Character
 import com.sample.starwarssample.model.DisplayCharacter
 import com.sample.starwarssample.utils.NetworkResult
 import com.sample.starwarssample.utils.toDisplayCharacter
@@ -19,5 +20,13 @@ class DetailCharacterModel(private val apiService: ApiService, private val db: A
         } else {
             NetworkResult.Error("Failed to load detail character info. Error code ${response.code()}")
         }
+    }
+
+    internal suspend fun saveCharacter(character: Character) {
+        db.getCharactersDataDao().saveCharacter(character)
+    }
+
+    internal suspend fun removeCharacter(character: Character) {
+        db.getCharactersDataDao().removeCharacter(character.url)
     }
 }

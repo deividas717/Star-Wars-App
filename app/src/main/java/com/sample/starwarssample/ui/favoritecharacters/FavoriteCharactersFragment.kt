@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.sample.starwarssample.R
-import com.sample.starwarssample.model.Character
 import com.sample.starwarssample.model.DisplayCharacter
 import com.sample.starwarssample.ui.BaseFragment
 import com.sample.starwarssample.ui.adapter.CharactersAdapter
-import com.sample.starwarssample.ui.characters.CharactersViewModel
 import com.sample.starwarssample.ui.characters.detail.DetailCharacterFragment
 import kotlinx.android.synthetic.main.favorite_characters_fragment.*
 import javax.inject.Inject
@@ -34,10 +32,14 @@ class FavoriteCharactersFragment : BaseFragment() {
     private fun observeLiveData() {
         viewModel.favoriteCharacterList.observe(::setData)
         viewModel.loadingState.observe(::handleDataLoadingDialog)
+        viewModel.errorState.observe(::showErrorDialog)
     }
 
     private fun setData(favoriteCharacters: List<DisplayCharacter>) {
-        adapter.characterList = favoriteCharacters
+        if (favoriteCharacters.isNotEmpty()) {
+            noFavoriteCharactersTextView.visibility = View.GONE
+            adapter.characterList = favoriteCharacters
+        }
     }
 
     private fun showDetailCardItem(characterUrl: String) {
@@ -49,5 +51,9 @@ class FavoriteCharactersFragment : BaseFragment() {
 
     private fun onFavoriteButtonPressed(isAddedToFavorites: Boolean, character: DisplayCharacter) {
         viewModel.onFavoriteButtonPressed(isAddedToFavorites, character)
+    }
+
+    override fun onErrorDialogOkPressed() {
+        // empty
     }
 }

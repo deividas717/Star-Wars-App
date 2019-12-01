@@ -3,7 +3,9 @@ package com.sample.starwarssample.utils
 import com.sample.starwarssample.model.Character
 import com.sample.starwarssample.model.DisplayCharacter
 
-fun List<Character>.mapToDisplayCharacters(favorites: List<Character>? = null): List<DisplayCharacter> {
+fun List<Character>.mapToDisplayCharacters(
+    favorites: List<Character>? = null
+): List<DisplayCharacter> {
     return map { character ->
         character.toDisplayCharacter(favorites == null || favorites.contains(character))
     }
