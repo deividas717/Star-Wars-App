@@ -10,6 +10,7 @@ import com.sample.starwarssample.ui.characters.CharactersViewModel
 import com.sample.starwarssample.ui.planets.PlanetsFragment
 import com.sample.starwarssample.ui.planets.PlanetsModel
 import com.sample.starwarssample.ui.planets.PlanetsViewModel
+import com.sample.starwarssample.utils.NetworkUtils
 import com.sample.starwarssample.utils.ViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -36,7 +37,9 @@ abstract class PlanetsFragmentModule private constructor() {
         @Provides
         @IntoMap
         @ViewModelKey(PlanetsViewModel::class)
-        fun providePlanetsViewModelFactory(model: PlanetsModel): ViewModel =
-            PlanetsViewModel(model)
+        fun providePlanetsViewModelFactory(
+            model: PlanetsModel,
+            networkUtils: NetworkUtils
+        ): ViewModel = PlanetsViewModel(model, networkUtils)
     }
 }

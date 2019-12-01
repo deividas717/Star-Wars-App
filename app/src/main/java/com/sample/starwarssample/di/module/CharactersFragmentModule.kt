@@ -3,10 +3,12 @@ package com.sample.starwarssample.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.sample.starwarssample.api.ApiService
+import com.sample.starwarssample.db.AppDatabase
 import com.sample.starwarssample.di.annotation.ViewModelKey
 import com.sample.starwarssample.ui.characters.CharactersFragment
 import com.sample.starwarssample.ui.characters.CharactersModel
 import com.sample.starwarssample.ui.characters.CharactersViewModel
+import com.sample.starwarssample.utils.NetworkUtils
 import com.sample.starwarssample.utils.ViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -18,8 +20,8 @@ abstract class CharactersFragmentModule private constructor() {
     companion object {
         @JvmStatic
         @Provides
-        fun provideCharactersModel(apiService: ApiService): CharactersModel =
-            CharactersModel(apiService)
+        fun provideCharactersModel(apiService: ApiService, db: AppDatabase): CharactersModel =
+            CharactersModel(apiService, db)
 
         @JvmStatic
         @Provides
@@ -33,7 +35,9 @@ abstract class CharactersFragmentModule private constructor() {
         @Provides
         @IntoMap
         @ViewModelKey(CharactersViewModel::class)
-        fun provideCharactersViewModelFactory(model: CharactersModel): ViewModel =
-            CharactersViewModel(model)
+        fun provideCharactersViewModelFactory(
+            model: CharactersModel,
+            networkUtils: NetworkUtils
+        ): ViewModel = CharactersViewModel(model, networkUtils)
     }
 }

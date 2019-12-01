@@ -4,4 +4,21 @@
     <string name="title_planets">Planets</string>
     <string name="title_star_ships">Star Ships</string>
     <string name="title_favorite_characters">Favorites</string>
+    <string name="name">Name</string>
+    <string name="height">Height</string>
+    <string name="gender">Gender</string>
+    <string name="birth_year">Birth Year</string>
+    <string name="home_world">Home World</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_character_info">Detail Character info:</string>
+    <string name="rotation_period">Rotation period</string>
+    <string name="diameter">Diameter</string>
+    <string name="climate">Climate</string>
+    <string name="model">Model</string>
+    <string name="cost">Cost</string>
+    <string name="length">Length</string>
+    <string name="loading_data">Loading data</string>
+    <string name="your_device_is_offline">Your device is offline</string>
+    <string name="an_error_has_occured">An error has eccured</string>
 </resources>

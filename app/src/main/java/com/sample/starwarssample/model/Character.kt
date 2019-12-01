@@ -1,8 +1,11 @@
 package com.sample.starwarssample.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class User(
+@Entity
+data class Character(
     val name: String,
     val height: String,
     val gender: String,
@@ -11,9 +14,7 @@ data class User(
     @SerializedName("homeworld")
     val homeWorld: String,
     val url: String,
-    val films: List<String>,
-    val species: List<String>,
-    val vehicles: List<String>,
-    @SerializedName("starships")
-    val starShips: List<String>
-)
+    val created: String
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}

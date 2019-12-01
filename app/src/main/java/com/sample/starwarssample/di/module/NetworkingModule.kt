@@ -1,8 +1,11 @@
 package com.sample.starwarssample.di.module
 
+import android.content.Context
 import com.sample.starwarssample.api.ApiService
+import com.sample.starwarssample.di.annotation.AppContext
 import com.sample.starwarssample.di.annotation.AppScope
 import com.sample.starwarssample.utils.Constants
+import com.sample.starwarssample.utils.NetworkUtils
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -44,5 +47,10 @@ abstract class NetworkingModule private constructor() {
         @JvmStatic
         fun provideApiService(retrofit: Retrofit): ApiService =
             retrofit.create(ApiService::class.java)
+
+        @Provides
+        @AppScope
+        @JvmStatic
+        fun provideNetworkUtils(@AppContext context: Context): NetworkUtils = NetworkUtils(context)
     }
 }
